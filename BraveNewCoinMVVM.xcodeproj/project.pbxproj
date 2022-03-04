@@ -26,6 +26,12 @@
 		1B6476D627D1F87800EAC728 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476D527D1F87800EAC728 /* BaseViewController.swift */; };
 		1B6476D927D1F9EC00EAC728 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476D727D1F9EC00EAC728 /* BaseTableViewCell.swift */; };
 		1B6476DA27D1F9EC00EAC728 /* BaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6476D827D1F9EC00EAC728 /* BaseTableViewCell.xib */; };
+		1B6476DE27D1FC0900EAC728 /* MarketListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476DD27D1FC0900EAC728 /* MarketListViewController.swift */; };
+		1B6476E027D1FC4B00EAC728 /* MarketListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476DF27D1FC4B00EAC728 /* MarketListViewModel.swift */; };
+		1B6476E227D1FC5E00EAC728 /* MarketListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476E127D1FC5E00EAC728 /* MarketListContracts.swift */; };
+		1B6476E427D1FC6A00EAC728 /* MarketList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6476E327D1FC6A00EAC728 /* MarketList.storyboard */; };
+		1B6476E727D1FEA000EAC728 /* MarketPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476E627D1FEA000EAC728 /* MarketPresentation.swift */; };
+		1B6476E927D205C000EAC728 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476E827D205C000EAC728 /* UIViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,12 @@
 		1B6476D527D1F87800EAC728 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		1B6476D727D1F9EC00EAC728 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		1B6476D827D1F9EC00EAC728 /* BaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseTableViewCell.xib; sourceTree = "<group>"; };
+		1B6476DD27D1FC0900EAC728 /* MarketListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListViewController.swift; sourceTree = "<group>"; };
+		1B6476DF27D1FC4B00EAC728 /* MarketListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListViewModel.swift; sourceTree = "<group>"; };
+		1B6476E127D1FC5E00EAC728 /* MarketListContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketListContracts.swift; sourceTree = "<group>"; };
+		1B6476E327D1FC6A00EAC728 /* MarketList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarketList.storyboard; sourceTree = "<group>"; };
+		1B6476E627D1FEA000EAC728 /* MarketPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketPresentation.swift; sourceTree = "<group>"; };
+		1B6476E827D205C000EAC728 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,7 @@
 		1B6476A627D1D65800EAC728 /* BraveNewCoinMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				1B6476DB27D1FB4A00EAC728 /* Scenes */,
 				1B6476D327D1F85600EAC728 /* Utils */,
 				1B6476C727D1E5E800EAC728 /* Model */,
 				1B6476C327D1E14600EAC728 /* Service */,
@@ -139,6 +152,8 @@
 		1B6476D327D1F85600EAC728 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				1B6476E827D205C000EAC728 /* UIViewController+.swift */,
+				1B6476E527D1FE8F00EAC728 /* Presentations */,
 				1B6476D427D1F85E00EAC728 /* BaseClasses */,
 			);
 			path = Utils;
@@ -152,6 +167,33 @@
 				1B6476D827D1F9EC00EAC728 /* BaseTableViewCell.xib */,
 			);
 			path = BaseClasses;
+			sourceTree = "<group>";
+		};
+		1B6476DB27D1FB4A00EAC728 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				1B6476DC27D1FB6800EAC728 /* MarketList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1B6476DC27D1FB6800EAC728 /* MarketList */ = {
+			isa = PBXGroup;
+			children = (
+				1B6476E327D1FC6A00EAC728 /* MarketList.storyboard */,
+				1B6476DD27D1FC0900EAC728 /* MarketListViewController.swift */,
+				1B6476DF27D1FC4B00EAC728 /* MarketListViewModel.swift */,
+				1B6476E127D1FC5E00EAC728 /* MarketListContracts.swift */,
+			);
+			path = MarketList;
+			sourceTree = "<group>";
+		};
+		1B6476E527D1FE8F00EAC728 /* Presentations */ = {
+			isa = PBXGroup;
+			children = (
+				1B6476E627D1FEA000EAC728 /* MarketPresentation.swift */,
+			);
+			path = Presentations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6476E427D1FC6A00EAC728 /* MarketList.storyboard in Resources */,
 				1B6476DA27D1F9EC00EAC728 /* BaseTableViewCell.xib in Resources */,
 				1B6476B427D1D65A00EAC728 /* LaunchScreen.storyboard in Resources */,
 				1B6476B127D1D65A00EAC728 /* Assets.xcassets in Resources */,
@@ -228,12 +271,16 @@
 			files = (
 				1B6476AC27D1D65800EAC728 /* ViewController.swift in Sources */,
 				1B6476A827D1D65800EAC728 /* AppDelegate.swift in Sources */,
+				1B6476E927D205C000EAC728 /* UIViewController+.swift in Sources */,
 				1B6476BE27D1DC3000EAC728 /* BNCApi.swift in Sources */,
 				1B6476CE27D1E84C00EAC728 /* Asset.swift in Sources */,
 				1B6476C227D1DF0400EAC728 /* NetworkErrors.swift in Sources */,
 				1B6476D627D1F87800EAC728 /* BaseViewController.swift in Sources */,
 				1B6476C027D1DE2A00EAC728 /* BNCService.swift in Sources */,
+				1B6476E727D1FEA000EAC728 /* MarketPresentation.swift in Sources */,
 				1B6476AA27D1D65800EAC728 /* SceneDelegate.swift in Sources */,
+				1B6476DE27D1FC0900EAC728 /* MarketListViewController.swift in Sources */,
+				1B6476E227D1FC5E00EAC728 /* MarketListContracts.swift in Sources */,
 				1B6476C527D1E19900EAC728 /* MarketResponses.swift in Sources */,
 				1B6476BC27D1D6E100EAC728 /* APISettings.swift in Sources */,
 				1B6476CA27D1E60300EAC728 /* Market.swift in Sources */,
@@ -241,6 +288,7 @@
 				1B6476D227D1E9E900EAC728 /* Token.swift in Sources */,
 				1B6476D927D1F9EC00EAC728 /* BaseTableViewCell.swift in Sources */,
 				1B6476CC27D1E7EC00EAC728 /* AssetResponses.swift in Sources */,
+				1B6476E027D1FC4B00EAC728 /* MarketListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

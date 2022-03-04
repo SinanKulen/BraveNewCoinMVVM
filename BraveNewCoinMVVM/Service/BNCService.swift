@@ -14,7 +14,7 @@ protocol BNCServiceProtocol
     func fetchAsset(completion: @escaping(Result<AssetResponses, NetworkErrors>) -> Void)
 }
 
-class BNCService
+class BNCService : BNCServiceProtocol
 {
     func fetchToken(completion: @escaping (Result<TokenResponses, NetworkErrors>) -> Void)
     {
