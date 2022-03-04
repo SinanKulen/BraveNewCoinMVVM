@@ -14,7 +14,7 @@ final class MarketListViewModel : MarketListViewModelProtocol
     weak var delegate : MarketListViewModelDelegate?
     private let service : BNCServiceProtocol
     var market : [MarketPresentation] = []
-    init(_ service : BNCServiceProtocol = BNCService())
+    init(service : BNCServiceProtocol)
     {
         self.service = service
     }

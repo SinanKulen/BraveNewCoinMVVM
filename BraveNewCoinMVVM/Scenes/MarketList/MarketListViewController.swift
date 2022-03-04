@@ -19,7 +19,7 @@ class MarketListViewController: BaseViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.loadData()
-        //tableView.refreshControl
+        tableView.refreshControl = refreshController
         configureRefreshController()
         tableView.register(UINib(nibName: "BaseTableViewCell", bundle: nil), forCellReuseIdentifier: "BaseTableViewCell")
     }
