@@ -23,6 +23,9 @@
 		1B6476CE27D1E84C00EAC728 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476CD27D1E84C00EAC728 /* Asset.swift */; };
 		1B6476D027D1E96100EAC728 /* TokenResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476CF27D1E96100EAC728 /* TokenResponses.swift */; };
 		1B6476D227D1E9E900EAC728 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476D127D1E9E900EAC728 /* Token.swift */; };
+		1B6476D627D1F87800EAC728 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476D527D1F87800EAC728 /* BaseViewController.swift */; };
+		1B6476D927D1F9EC00EAC728 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476D727D1F9EC00EAC728 /* BaseTableViewCell.swift */; };
+		1B6476DA27D1F9EC00EAC728 /* BaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B6476D827D1F9EC00EAC728 /* BaseTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		1B6476CD27D1E84C00EAC728 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		1B6476CF27D1E96100EAC728 /* TokenResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponses.swift; sourceTree = "<group>"; };
 		1B6476D127D1E9E900EAC728 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		1B6476D527D1F87800EAC728 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		1B6476D727D1F9EC00EAC728 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		1B6476D827D1F9EC00EAC728 /* BaseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BaseTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,7 @@
 		1B6476A627D1D65800EAC728 /* BraveNewCoinMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				1B6476D327D1F85600EAC728 /* Utils */,
 				1B6476C727D1E5E800EAC728 /* Model */,
 				1B6476C327D1E14600EAC728 /* Service */,
 				1B6476A727D1D65800EAC728 /* AppDelegate.swift */,
@@ -127,6 +134,24 @@
 				1B6476D127D1E9E900EAC728 /* Token.swift */,
 			);
 			name = DTOs;
+			sourceTree = "<group>";
+		};
+		1B6476D327D1F85600EAC728 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1B6476D427D1F85E00EAC728 /* BaseClasses */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		1B6476D427D1F85E00EAC728 /* BaseClasses */ = {
+			isa = PBXGroup;
+			children = (
+				1B6476D527D1F87800EAC728 /* BaseViewController.swift */,
+				1B6476D727D1F9EC00EAC728 /* BaseTableViewCell.swift */,
+				1B6476D827D1F9EC00EAC728 /* BaseTableViewCell.xib */,
+			);
+			path = BaseClasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B6476DA27D1F9EC00EAC728 /* BaseTableViewCell.xib in Resources */,
 				1B6476B427D1D65A00EAC728 /* LaunchScreen.storyboard in Resources */,
 				1B6476B127D1D65A00EAC728 /* Assets.xcassets in Resources */,
 				1B6476AF27D1D65800EAC728 /* Main.storyboard in Resources */,
@@ -205,6 +231,7 @@
 				1B6476BE27D1DC3000EAC728 /* BNCApi.swift in Sources */,
 				1B6476CE27D1E84C00EAC728 /* Asset.swift in Sources */,
 				1B6476C227D1DF0400EAC728 /* NetworkErrors.swift in Sources */,
+				1B6476D627D1F87800EAC728 /* BaseViewController.swift in Sources */,
 				1B6476C027D1DE2A00EAC728 /* BNCService.swift in Sources */,
 				1B6476AA27D1D65800EAC728 /* SceneDelegate.swift in Sources */,
 				1B6476C527D1E19900EAC728 /* MarketResponses.swift in Sources */,
@@ -212,6 +239,7 @@
 				1B6476CA27D1E60300EAC728 /* Market.swift in Sources */,
 				1B6476D027D1E96100EAC728 /* TokenResponses.swift in Sources */,
 				1B6476D227D1E9E900EAC728 /* Token.swift in Sources */,
+				1B6476D927D1F9EC00EAC728 /* BaseTableViewCell.swift in Sources */,
 				1B6476CC27D1E7EC00EAC728 /* AssetResponses.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
