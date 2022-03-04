@@ -13,6 +13,10 @@
 		1B6476AF27D1D65800EAC728 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6476AD27D1D65800EAC728 /* Main.storyboard */; };
 		1B6476B127D1D65A00EAC728 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B6476B027D1D65A00EAC728 /* Assets.xcassets */; };
 		1B6476B427D1D65A00EAC728 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6476B227D1D65A00EAC728 /* LaunchScreen.storyboard */; };
+		1B6476BC27D1D6E100EAC728 /* APISettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476BB27D1D6E100EAC728 /* APISettings.swift */; };
+		1B6476BE27D1DC3000EAC728 /* BNCApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476BD27D1DC3000EAC728 /* BNCApi.swift */; };
+		1B6476C027D1DE2A00EAC728 /* BNCService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476BF27D1DE2A00EAC728 /* BNCService.swift */; };
+		1B6476C227D1DF0400EAC728 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476C127D1DF0400EAC728 /* NetworkErrors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		1B6476B027D1D65A00EAC728 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1B6476B327D1D65A00EAC728 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1B6476B527D1D65A00EAC728 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1B6476BB27D1D6E100EAC728 /* APISettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APISettings.swift; sourceTree = "<group>"; };
+		1B6476BD27D1DC3000EAC728 /* BNCApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNCApi.swift; sourceTree = "<group>"; };
+		1B6476BF27D1DE2A00EAC728 /* BNCService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BNCService.swift; sourceTree = "<group>"; };
+		1B6476C127D1DF0400EAC728 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 		1B6476A627D1D65800EAC728 /* BraveNewCoinMVVM */ = {
 			isa = PBXGroup;
 			children = (
+				1B6476C327D1E14600EAC728 /* Service */,
 				1B6476A727D1D65800EAC728 /* AppDelegate.swift */,
 				1B6476A927D1D65800EAC728 /* SceneDelegate.swift */,
 				1B6476AB27D1D65800EAC728 /* ViewController.swift */,
@@ -65,6 +74,17 @@
 				1B6476B527D1D65A00EAC728 /* Info.plist */,
 			);
 			path = BraveNewCoinMVVM;
+			sourceTree = "<group>";
+		};
+		1B6476C327D1E14600EAC728 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				1B6476BD27D1DC3000EAC728 /* BNCApi.swift */,
+				1B6476C127D1DF0400EAC728 /* NetworkErrors.swift */,
+				1B6476BF27D1DE2A00EAC728 /* BNCService.swift */,
+				1B6476BB27D1D6E100EAC728 /* APISettings.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +160,11 @@
 			files = (
 				1B6476AC27D1D65800EAC728 /* ViewController.swift in Sources */,
 				1B6476A827D1D65800EAC728 /* AppDelegate.swift in Sources */,
+				1B6476BE27D1DC3000EAC728 /* BNCApi.swift in Sources */,
+				1B6476C227D1DF0400EAC728 /* NetworkErrors.swift in Sources */,
+				1B6476C027D1DE2A00EAC728 /* BNCService.swift in Sources */,
 				1B6476AA27D1D65800EAC728 /* SceneDelegate.swift in Sources */,
+				1B6476BC27D1D6E100EAC728 /* APISettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
