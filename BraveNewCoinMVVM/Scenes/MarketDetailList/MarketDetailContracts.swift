@@ -1,0 +1,9 @@
+//
+//  MarketDetailContracts.swift
+//  BraveNewCoinMVVM
+//
+//  Created by Sinan Kulen on 5.03.2022.
+//
+
+import Foundation
+

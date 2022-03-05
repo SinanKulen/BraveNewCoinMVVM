@@ -31,7 +31,35 @@ class BNCService : BNCServiceProtocol
         dataRequest(RequestType.asset, completion: completion)
     }
     
+    func fetchMarketDetail(completion: @escaping(Result<MarketDetailResponses, NetworkErrors>) -> Void)
+    {
+        detailDataRequest(RequestType.market, completion: completion)
+    }
+    
     //Send request to api and decode the result
+    func detailDataRequest<T:Decodable>(_ requestType: RequestType, completion: @escaping(Result<T,NetworkErrors>)->Void)
+    {
+        URLSession.shared.dataTask(with: requestType.createMarketAssetDetailURLRequest()!) { data, _, error in
+            if let _ = error
+            {
+                completion(.failure(.failed))
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badRequest))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(T.self, from: data)
+                completion(.success(response))
+            } catch {
+                completion(.failure(.unableToDecode))
+            }
+        }.resume()
+    }
+    
     func dataRequest<T:Decodable>(_ requestType: RequestType, completion: @escaping(Result<T,NetworkErrors>)->Void)
     {
         URLSession.shared.dataTask(with: requestType.createMarketAssetURLRequest()!) { data, _, error in

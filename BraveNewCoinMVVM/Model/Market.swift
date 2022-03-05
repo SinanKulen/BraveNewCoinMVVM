@@ -7,11 +7,6 @@
 
 import Foundation
 
-import Foundation
-//struct Market: Codable {
-//    let content: [MarketContent]
-//}
-
 // MARK: - Content
 struct Market: Codable {
     let id, baseAssetID, quoteAssetID: String

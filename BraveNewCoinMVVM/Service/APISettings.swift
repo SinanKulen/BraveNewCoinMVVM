@@ -23,6 +23,7 @@ protocol APISetting
     var headerGet : [String:String] { get }
     var headerPost : [String:String] { get }
     var parameters : [String:Any] { get }
+    var idString : String { get }
 }
 
 extension APISetting
@@ -67,14 +68,48 @@ extension APISetting
                 "grant_type": "client_credentials"]
     }
     
-    func createMarketAssetURLString() -> String
+    var idString : String
     {
-        return "\(scheme)://\(host)\(path))"
+        return MarketId.marketid!
     }
     
     func createTokenURLString() -> String
     {
-        return "\(scheme)://\(host)\(path))"
+        return "\(scheme)://\(host)\(path)"
+    }
+    
+    func createMarketAssetURLString() -> String
+    {
+        return "\(scheme)://\(host)\(path)"
+    }
+    
+    func createMarketAssetDetailURLString() -> String
+    {
+        return "\(scheme)://\(host)\(path)\(idString)"
+    }
+    
+    func createTokenURLRequest() -> URLRequest?
+    {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = path
+        components.user = MarketId.marketid
+        
+        let bodyData = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+        
+        if let url = components.url
+        {
+            var request = URLRequest(url: url)
+            request.httpMethod = httpMethodPost.rawValue
+            request.allHTTPHeaderFields = headerPost
+            request.httpBody = bodyData as Data
+            return request
+        }
+        else
+        {
+            return nil
+        }
     }
     
     func createMarketAssetURLRequest() -> URLRequest?
@@ -97,20 +132,19 @@ extension APISetting
         }
     }
     
-    func createTokenURLRequest() -> URLRequest?
+    func createMarketAssetDetailURLRequest() -> URLRequest?
     {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
         components.path = path
-        let bodyData = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+        components.user = MarketId.marketid
         
         if let url = components.url
         {
             var request = URLRequest(url: url)
-            request.httpMethod = httpMethodPost.rawValue
-            request.allHTTPHeaderFields = headerPost
-            request.httpBody = bodyData as Data
+            request.httpMethod = httpMethodGet.rawValue
+            request.allHTTPHeaderFields = headerGet
             return request
         }
         else

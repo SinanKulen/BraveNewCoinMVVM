@@ -41,6 +41,13 @@
 		1B64770027D2B08100EAC728 /* AssetPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476FF27D2B08100EAC728 /* AssetPresentation.swift */; };
 		1B64770327D33A7900EAC728 /* CustomTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B64770227D33A7900EAC728 /* CustomTabBar.storyboard */; };
 		1B64770527D33A9B00EAC728 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64770427D33A9B00EAC728 /* TabBarController.swift */; };
+		1B64770827D349DA00EAC728 /* MarketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64770727D349DA00EAC728 /* MarketDetailViewController.swift */; };
+		1B64770A27D349FB00EAC728 /* MarketDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64770927D349FB00EAC728 /* MarketDetailViewModel.swift */; };
+		1B64770C27D34A0A00EAC728 /* MarketDetailContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64770B27D34A0A00EAC728 /* MarketDetailContracts.swift */; };
+		1B64770E27D34A1600EAC728 /* MarketDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B64770D27D34A1600EAC728 /* MarketDetail.storyboard */; };
+		1B64771027D3C88100EAC728 /* MarketDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64770F27D3C88100EAC728 /* MarketDetail.swift */; };
+		1B64771227D3C8EA00EAC728 /* MarketDetailPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64771127D3C8EA00EAC728 /* MarketDetailPresentation.swift */; };
+		1B64771427D405DE00EAC728 /* MarketDetailResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64771327D405DE00EAC728 /* MarketDetailResponses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +87,13 @@
 		1B6476FF27D2B08100EAC728 /* AssetPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetPresentation.swift; sourceTree = "<group>"; };
 		1B64770227D33A7900EAC728 /* CustomTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTabBar.storyboard; sourceTree = "<group>"; };
 		1B64770427D33A9B00EAC728 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		1B64770727D349DA00EAC728 /* MarketDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailViewController.swift; sourceTree = "<group>"; };
+		1B64770927D349FB00EAC728 /* MarketDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailViewModel.swift; sourceTree = "<group>"; };
+		1B64770B27D34A0A00EAC728 /* MarketDetailContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailContracts.swift; sourceTree = "<group>"; };
+		1B64770D27D34A1600EAC728 /* MarketDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MarketDetail.storyboard; sourceTree = "<group>"; };
+		1B64770F27D3C88100EAC728 /* MarketDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetail.swift; sourceTree = "<group>"; };
+		1B64771127D3C8EA00EAC728 /* MarketDetailPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailPresentation.swift; sourceTree = "<group>"; };
+		1B64771327D405DE00EAC728 /* MarketDetailResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailResponses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				1B6476C427D1E19900EAC728 /* MarketResponses.swift */,
+				1B64771327D405DE00EAC728 /* MarketDetailResponses.swift */,
 				1B6476CB27D1E7EB00EAC728 /* AssetResponses.swift */,
 				1B6476CF27D1E96100EAC728 /* TokenResponses.swift */,
 			);
@@ -156,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				1B6476C927D1E60300EAC728 /* Market.swift */,
+				1B64770F27D3C88100EAC728 /* MarketDetail.swift */,
 				1B6476CD27D1E84C00EAC728 /* Asset.swift */,
 				1B6476D127D1E9E900EAC728 /* Token.swift */,
 			);
@@ -185,11 +201,11 @@
 		1B6476DB27D1FB4A00EAC728 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				1B64770627D3490400EAC728 /* MarketDetailList */,
 				1B64770127D33A6100EAC728 /* Root */,
 				1B6476EA27D20CB700EAC728 /* SceneBuilders */,
 				1B6476F427D2ABF600EAC728 /* AssetList */,
 				1B6476DC27D1FB6800EAC728 /* MarketList */,
+				1B64770627D3490400EAC728 /* MarketDetailList */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -209,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				1B6476E627D1FEA000EAC728 /* MarketPresentation.swift */,
+				1B64771127D3C8EA00EAC728 /* MarketDetailPresentation.swift */,
 				1B6476FF27D2B08100EAC728 /* AssetPresentation.swift */,
 			);
 			path = Presentations;
@@ -259,6 +276,10 @@
 		1B64770627D3490400EAC728 /* MarketDetailList */ = {
 			isa = PBXGroup;
 			children = (
+				1B64770727D349DA00EAC728 /* MarketDetailViewController.swift */,
+				1B64770927D349FB00EAC728 /* MarketDetailViewModel.swift */,
+				1B64770B27D34A0A00EAC728 /* MarketDetailContracts.swift */,
+				1B64770D27D34A1600EAC728 /* MarketDetail.storyboard */,
 			);
 			path = MarketDetailList;
 			sourceTree = "<group>";
@@ -323,6 +344,7 @@
 			files = (
 				1B6476FE27D2AC6600EAC728 /* AssetList.storyboard in Resources */,
 				1B64770327D33A7900EAC728 /* CustomTabBar.storyboard in Resources */,
+				1B64770E27D34A1600EAC728 /* MarketDetail.storyboard in Resources */,
 				1B6476E427D1FC6A00EAC728 /* MarketList.storyboard in Resources */,
 				1B6476DA27D1F9EC00EAC728 /* BaseTableViewCell.xib in Resources */,
 				1B6476B427D1D65A00EAC728 /* LaunchScreen.storyboard in Resources */,
@@ -340,7 +362,9 @@
 				1B6476A827D1D65800EAC728 /* AppDelegate.swift in Sources */,
 				1B6476E927D205C000EAC728 /* UIViewController+.swift in Sources */,
 				1B6476F127D20DDB00EAC728 /* AppContainer.swift in Sources */,
+				1B64771427D405DE00EAC728 /* MarketDetailResponses.swift in Sources */,
 				1B6476BE27D1DC3000EAC728 /* BNCApi.swift in Sources */,
+				1B64771027D3C88100EAC728 /* MarketDetail.swift in Sources */,
 				1B6476CE27D1E84C00EAC728 /* Asset.swift in Sources */,
 				1B6476C227D1DF0400EAC728 /* NetworkErrors.swift in Sources */,
 				1B6476D627D1F87800EAC728 /* BaseViewController.swift in Sources */,
@@ -348,10 +372,14 @@
 				1B6476E727D1FEA000EAC728 /* MarketPresentation.swift in Sources */,
 				1B6476AA27D1D65800EAC728 /* SceneDelegate.swift in Sources */,
 				1B6476DE27D1FC0900EAC728 /* MarketListViewController.swift in Sources */,
+				1B64770A27D349FB00EAC728 /* MarketDetailViewModel.swift in Sources */,
 				1B6476E227D1FC5E00EAC728 /* MarketListContracts.swift in Sources */,
+				1B64770C27D34A0A00EAC728 /* MarketDetailContracts.swift in Sources */,
 				1B6476FA27D2AC3F00EAC728 /* AssetListViewModel.swift in Sources */,
 				1B64770027D2B08100EAC728 /* AssetPresentation.swift in Sources */,
+				1B64771227D3C8EA00EAC728 /* MarketDetailPresentation.swift in Sources */,
 				1B6476C527D1E19900EAC728 /* MarketResponses.swift in Sources */,
+				1B64770827D349DA00EAC728 /* MarketDetailViewController.swift in Sources */,
 				1B6476BC27D1D6E100EAC728 /* APISettings.swift in Sources */,
 				1B6476CA27D1E60300EAC728 /* Market.swift in Sources */,
 				1B6476FC27D2AC5900EAC728 /* AssetListContracts.swift in Sources */,

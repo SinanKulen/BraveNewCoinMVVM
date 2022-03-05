@@ -6,11 +6,6 @@
 //
 
 import Foundation
-// MARK: - AssetModel
-//struct AssetDTO: Codable {
-//    let content: [AssetContent]
-//}
-
 // MARK: - Content
 struct Asset: Codable {
     let id, name, symbol, slugName: String

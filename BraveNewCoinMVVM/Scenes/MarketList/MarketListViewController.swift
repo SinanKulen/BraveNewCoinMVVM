@@ -33,6 +33,7 @@ class MarketListViewController: BaseViewController
         viewModel.refreshData()
         tableView.reloadData()
         refreshController.endRefreshing()
+       // MarketId.shared.marketid
     }
 }
 
@@ -68,6 +69,7 @@ extension MarketListViewController : UITableViewDataSource
 extension MarketListViewController : UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
+        MarketId.marketid = viewModel.market[indexPath.row].id
     }
 }
