@@ -39,6 +39,8 @@
 		1B6476FC27D2AC5900EAC728 /* AssetListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476FB27D2AC5900EAC728 /* AssetListContracts.swift */; };
 		1B6476FE27D2AC6600EAC728 /* AssetList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6476FD27D2AC6600EAC728 /* AssetList.storyboard */; };
 		1B64770027D2B08100EAC728 /* AssetPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6476FF27D2B08100EAC728 /* AssetPresentation.swift */; };
+		1B64770327D33A7900EAC728 /* CustomTabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B64770227D33A7900EAC728 /* CustomTabBar.storyboard */; };
+		1B64770527D33A9B00EAC728 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64770427D33A9B00EAC728 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		1B6476FB27D2AC5900EAC728 /* AssetListContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetListContracts.swift; sourceTree = "<group>"; };
 		1B6476FD27D2AC6600EAC728 /* AssetList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AssetList.storyboard; sourceTree = "<group>"; };
 		1B6476FF27D2B08100EAC728 /* AssetPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetPresentation.swift; sourceTree = "<group>"; };
+		1B64770227D33A7900EAC728 /* CustomTabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomTabBar.storyboard; sourceTree = "<group>"; };
+		1B64770427D33A9B00EAC728 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +185,8 @@
 		1B6476DB27D1FB4A00EAC728 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				1B64770627D3490400EAC728 /* MarketDetailList */,
+				1B64770127D33A6100EAC728 /* Root */,
 				1B6476EA27D20CB700EAC728 /* SceneBuilders */,
 				1B6476F427D2ABF600EAC728 /* AssetList */,
 				1B6476DC27D1FB6800EAC728 /* MarketList */,
@@ -224,8 +230,6 @@
 				1B6476A927D1D65800EAC728 /* SceneDelegate.swift */,
 				1B6476B027D1D65A00EAC728 /* Assets.xcassets */,
 				1B6476B227D1D65A00EAC728 /* LaunchScreen.storyboard */,
-				1B6476EE27D20DD100EAC728 /* AppRouter.swift */,
-				1B6476F027D20DDB00EAC728 /* AppContainer.swift */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -239,6 +243,24 @@
 				1B6476FD27D2AC6600EAC728 /* AssetList.storyboard */,
 			);
 			path = AssetList;
+			sourceTree = "<group>";
+		};
+		1B64770127D33A6100EAC728 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				1B64770227D33A7900EAC728 /* CustomTabBar.storyboard */,
+				1B64770427D33A9B00EAC728 /* TabBarController.swift */,
+				1B6476EE27D20DD100EAC728 /* AppRouter.swift */,
+				1B6476F027D20DDB00EAC728 /* AppContainer.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		1B64770627D3490400EAC728 /* MarketDetailList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MarketDetailList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B6476FE27D2AC6600EAC728 /* AssetList.storyboard in Resources */,
+				1B64770327D33A7900EAC728 /* CustomTabBar.storyboard in Resources */,
 				1B6476E427D1FC6A00EAC728 /* MarketList.storyboard in Resources */,
 				1B6476DA27D1F9EC00EAC728 /* BaseTableViewCell.xib in Resources */,
 				1B6476B427D1D65A00EAC728 /* LaunchScreen.storyboard in Resources */,
@@ -339,6 +362,7 @@
 				1B6476F627D2AC2300EAC728 /* AssetListViewController.swift in Sources */,
 				1B6476EC27D20CE100EAC728 /* MarketListSceneBuilder.swift in Sources */,
 				1B6476CC27D1E7EC00EAC728 /* AssetResponses.swift in Sources */,
+				1B64770527D33A9B00EAC728 /* TabBarController.swift in Sources */,
 				1B6476E027D1FC4B00EAC728 /* MarketListViewModel.swift in Sources */,
 				1B6476F327D2AB8E00EAC728 /* AssetListSceneBuilder.swift in Sources */,
 			);
