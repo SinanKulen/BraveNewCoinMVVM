@@ -13,7 +13,7 @@ class AppRouter
     func start(scene: UIWindowScene) -> UIWindow
     {
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let marketListVC = MarketListSceneBuilder.build()
+        let marketListVC = AssetListSceneBuilder.build()
         let navigationController = UINavigationController(rootViewController: marketListVC)
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
