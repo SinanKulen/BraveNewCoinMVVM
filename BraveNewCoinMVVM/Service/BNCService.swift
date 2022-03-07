@@ -13,6 +13,7 @@ protocol BNCServiceProtocol
     func fetchMarket(completion: @escaping (Result<MarketResponses, NetworkErrors>) -> Void)
     func fetchAsset(completion: @escaping(Result<AssetResponses, NetworkErrors>) -> Void)
     func fetchMarketDetail(completion: @escaping(Result<MarketDetailResponses, NetworkErrors>) -> Void)
+    func fetchAssetDetail(completion: @escaping(Result<AssetDetailResponses, NetworkErrors>) -> Void)
 }
 
 class BNCService : BNCServiceProtocol
@@ -35,6 +36,11 @@ class BNCService : BNCServiceProtocol
     func fetchMarketDetail(completion: @escaping(Result<MarketDetailResponses, NetworkErrors>) -> Void)
     {
         detailDataRequest(RequestType.marketId, completion: completion)
+    }
+    
+    func fetchAssetDetail(completion: @escaping(Result<AssetDetailResponses, NetworkErrors>) -> Void)
+    {
+        detailDataRequest(RequestType.assetId, completion: completion)
     }
     
     //Send request to api and decode the result

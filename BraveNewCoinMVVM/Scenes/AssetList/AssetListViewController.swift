@@ -35,6 +35,12 @@ class AssetListViewController: BaseViewController
         tableView.reloadData()
         refreshController.endRefreshing()
     }
+    
+    func buildAssetDetailVC()
+    {
+        let vc = AssetDetailSceneBuilder.build()
+        show(vc, sender: nil)
+    }
 }
 
 extension AssetListViewController : AssetListViewModelDelegate
@@ -69,6 +75,7 @@ extension AssetListViewController : UITableViewDataSource
 extension AssetListViewController : UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        AssetId.assetid = viewModel.asset[indexPath.row].id
+        buildAssetDetailVC()
     }
 }

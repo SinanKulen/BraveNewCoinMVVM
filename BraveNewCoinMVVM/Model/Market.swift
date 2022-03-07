@@ -7,7 +7,6 @@
 
 import Foundation
 
-// MARK: - Content
 struct Market: Codable {
     let id, baseAssetID, quoteAssetID: String
 
