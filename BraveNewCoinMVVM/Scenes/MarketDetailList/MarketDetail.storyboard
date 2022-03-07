@@ -1,25 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17150" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Market Detail View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MarketDetailViewController" id="Y6W-OH-hqX" customClass="MarketDetailViewController" customModule="BraveNewCoinMVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="marketId" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k6L-S8-LQk">
+                                <rect key="frame" x="50" y="278.5" width="314" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="Jkq-0R-Joa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="baseId" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wk-28-k9k">
+                                <rect key="frame" x="50" y="411.5" width="314" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="314" id="UT6-hO-NYQ"/>
+                                    <constraint firstAttribute="height" constant="83" id="x3z-ot-rDA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="quoteId" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq5-8D-DiK">
+                                <rect key="frame" x="50" y="544.5" width="314" height="83"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="G6U-9X-tgU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fq5-8D-DiK" firstAttribute="leading" secondItem="3wk-28-k9k" secondAttribute="leading" id="F9J-pf-i3s"/>
+                            <constraint firstItem="3wk-28-k9k" firstAttribute="top" secondItem="k6L-S8-LQk" secondAttribute="bottom" constant="50" id="I0B-fa-VkL"/>
+                            <constraint firstItem="k6L-S8-LQk" firstAttribute="trailing" secondItem="3wk-28-k9k" secondAttribute="trailing" id="Ijq-NH-pbu"/>
+                            <constraint firstItem="3wk-28-k9k" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="JxR-A5-HRg"/>
+                            <constraint firstItem="fq5-8D-DiK" firstAttribute="trailing" secondItem="3wk-28-k9k" secondAttribute="trailing" id="OIU-WI-Fnu"/>
+                            <constraint firstItem="fq5-8D-DiK" firstAttribute="top" secondItem="3wk-28-k9k" secondAttribute="bottom" constant="50" id="fIe-42-lSl"/>
+                            <constraint firstItem="k6L-S8-LQk" firstAttribute="leading" secondItem="3wk-28-k9k" secondAttribute="leading" id="j7C-Pg-CQu"/>
+                            <constraint firstItem="3wk-28-k9k" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="rV7-Vr-EPJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="baseId" destination="3wk-28-k9k" id="fI1-F0-j6P"/>
+                        <outlet property="marketId" destination="k6L-S8-LQk" id="Gbt-7g-F6c"/>
+                        <outlet property="quoteId" destination="fq5-8D-DiK" id="2rK-UH-bBl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-10.144927536231885" y="81.696428571428569"/>
         </scene>
     </scenes>
     <resources>

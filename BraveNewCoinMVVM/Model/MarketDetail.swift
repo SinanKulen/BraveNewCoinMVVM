@@ -8,7 +8,7 @@
 import Foundation
 
 struct MarketDetail: Codable {
-    let id, baseAssetId, quoteAssetId: String
+    var id, baseAssetId, quoteAssetId: String
 
 }
 

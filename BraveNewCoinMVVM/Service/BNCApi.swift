@@ -12,6 +12,7 @@ enum RequestType
     case token
     case market
     case asset
+    case marketId
 }
 
 // Creates path depends on request
@@ -26,6 +27,8 @@ extension RequestType : APISetting
             return "/market"
         case .asset :
             return "/asset"
+        case .marketId :
+            return "/market/\(MarketId.marketid ?? "")"
         }
     }
 }

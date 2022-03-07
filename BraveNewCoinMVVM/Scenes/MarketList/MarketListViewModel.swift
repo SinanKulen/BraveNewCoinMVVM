@@ -10,7 +10,6 @@ import Foundation
 
 final class MarketListViewModel : MarketListViewModelProtocol
 {
-   
     weak var delegate : MarketListViewModelDelegate?
     private let service : BNCServiceProtocol
     var market : [MarketPresentation] = []

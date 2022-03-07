@@ -33,7 +33,12 @@ class MarketListViewController: BaseViewController
         viewModel.refreshData()
         tableView.reloadData()
         refreshController.endRefreshing()
-       // MarketId.shared.marketid
+    }
+    
+    func buildMarketDetailVC()
+    {
+        let vc = MarketDetailSceneBuilder.build()
+        show(vc, sender: nil)
     }
 }
 
@@ -71,5 +76,6 @@ extension MarketListViewController : UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         MarketId.marketid = viewModel.market[indexPath.row].id
+        buildMarketDetailVC()
     }
 }

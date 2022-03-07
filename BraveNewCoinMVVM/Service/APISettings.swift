@@ -23,7 +23,6 @@ protocol APISetting
     var headerGet : [String:String] { get }
     var headerPost : [String:String] { get }
     var parameters : [String:Any] { get }
-    var idString : String { get }
 }
 
 extension APISetting
@@ -68,11 +67,6 @@ extension APISetting
                 "grant_type": "client_credentials"]
     }
     
-    var idString : String
-    {
-        return MarketId.marketid!
-    }
-    
     func createTokenURLString() -> String
     {
         return "\(scheme)://\(host)\(path)"
@@ -85,7 +79,7 @@ extension APISetting
     
     func createMarketAssetDetailURLString() -> String
     {
-        return "\(scheme)://\(host)\(path)\(idString)"
+        return "\(scheme)://\(host)\(path)"
     }
     
     func createTokenURLRequest() -> URLRequest?
@@ -138,7 +132,6 @@ extension APISetting
         components.scheme = scheme
         components.host = host
         components.path = path
-        components.user = MarketId.marketid
         
         if let url = components.url
         {

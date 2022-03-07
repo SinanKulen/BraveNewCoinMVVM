@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct MarketDetailPresentation: Equatable
+final class MarketDetailPresentation
 {
-    let id, baseAssetId, quoteAssetId: String
-
-    init(marketDetail: MarketDetail)
+    var id, baseAssetId, quoteAssetId : String
+    
+    init(marketDetail : MarketDetail)
     {
         self.id = marketDetail.id
         self.baseAssetId = marketDetail.baseAssetId
@@ -23,3 +23,5 @@ struct MarketDetailPresentation: Equatable
         return lhs.id == rhs.id && lhs.baseAssetId == rhs.baseAssetId && lhs.quoteAssetId == rhs.quoteAssetId
     }
 }
+
+

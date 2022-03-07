@@ -48,6 +48,7 @@
 		1B64771027D3C88100EAC728 /* MarketDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64770F27D3C88100EAC728 /* MarketDetail.swift */; };
 		1B64771227D3C8EA00EAC728 /* MarketDetailPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64771127D3C8EA00EAC728 /* MarketDetailPresentation.swift */; };
 		1B64771427D405DE00EAC728 /* MarketDetailResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64771327D405DE00EAC728 /* MarketDetailResponses.swift */; };
+		1B64771627D4D35600EAC728 /* MarketDetailSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B64771527D4D35600EAC728 /* MarketDetailSceneBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		1B64770F27D3C88100EAC728 /* MarketDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetail.swift; sourceTree = "<group>"; };
 		1B64771127D3C8EA00EAC728 /* MarketDetailPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailPresentation.swift; sourceTree = "<group>"; };
 		1B64771327D405DE00EAC728 /* MarketDetailResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailResponses.swift; sourceTree = "<group>"; };
+		1B64771527D4D35600EAC728 /* MarketDetailSceneBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketDetailSceneBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 			children = (
 				1B6476EB27D20CE100EAC728 /* MarketListSceneBuilder.swift */,
 				1B6476F227D2AB8E00EAC728 /* AssetListSceneBuilder.swift */,
+				1B64771527D4D35600EAC728 /* MarketDetailSceneBuilder.swift */,
 			);
 			path = SceneBuilders;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				1B6476E927D205C000EAC728 /* UIViewController+.swift in Sources */,
 				1B6476F127D20DDB00EAC728 /* AppContainer.swift in Sources */,
 				1B64771427D405DE00EAC728 /* MarketDetailResponses.swift in Sources */,
+				1B64771627D4D35600EAC728 /* MarketDetailSceneBuilder.swift in Sources */,
 				1B6476BE27D1DC3000EAC728 /* BNCApi.swift in Sources */,
 				1B64771027D3C88100EAC728 /* MarketDetail.swift in Sources */,
 				1B6476CE27D1E84C00EAC728 /* Asset.swift in Sources */,
