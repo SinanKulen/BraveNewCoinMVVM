@@ -7,14 +7,12 @@
 
 import Foundation
 
-enum HttpMethod: String
-{
+enum HttpMethod: String {
     case get = "GET"
     case post = "POST"
 }
 
-protocol APISetting
-{
+protocol APISetting {
     var httpMethodGet : HttpMethod { get }
     var httpMethodPost : HttpMethod { get }
     var scheme : String { get }
@@ -25,123 +23,102 @@ protocol APISetting
     var parameters : [String:Any] { get }
 }
 
-extension APISetting
-{
-    var httpMethodGet : HttpMethod
-    {
+extension APISetting {
+    var httpMethodGet : HttpMethod {
         return .get
     }
     
-    var httpMethodPost : HttpMethod
-    {
+    var httpMethodPost : HttpMethod {
         return .post
     }
     
-    var scheme : String
-    {
+    var scheme : String {
         return "https"
     }
     
-    var host : String
-    {
+    var host : String {
         return "bravenewcoin.p.rapidapi.com"
     }
     
-    var headerGet : [String:String]
-    {
+    var headerGet : [String:String] {
         return [ "x-rapidapi-host": "bravenewcoin.p.rapidapi.com",
                  "x-rapidapi-key": "f55d81b597mshed87f7780f5ff97p17046cjsna3b381cb7268"]
     }
     
-    var headerPost : [String:String]
-    {
+    var headerPost : [String:String] {
         return [ "content-type": "application/json",
-                                "x-rapidapi-host": "bravenewcoin.p.rapidapi.com",
+                 "x-rapidapi-host": "bravenewcoin.p.rapidapi.com",
                  "x-rapidapi-key": "f55d81b597mshed87f7780f5ff97p17046cjsna3b381cb7268"]
     }
     
-    var parameters : [String:Any]
-    {
+    var parameters : [String:Any] {
         return ["audience"  : "https://api.bravenewcoin.com",
                 "client_id" : "oCdQoZoI96ERE9HY3sQ7JmbACfBf55RY",
                 "grant_type": "client_credentials"]
     }
     
-    func createTokenURLString() -> String
-    {
+    func createTokenURLString() -> String {
         return "\(scheme)://\(host)\(path)"
     }
     
-    func createMarketAssetURLString() -> String
-    {
+    func createMarketAssetURLString() -> String {
         return "\(scheme)://\(host)\(path)"
     }
     
-    func createMarketAssetDetailURLString() -> String
-    {
+    func createMarketAssetDetailURLString() -> String {
         return "\(scheme)://\(host)\(path)"
     }
     
-    func createTokenURLRequest() -> URLRequest?
-    {
+    func createTokenURLRequest() -> URLRequest? {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
         components.path = path
-        components.user = MarketId.marketid
         
-        let bodyData = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+        let bodyData = try? JSONSerialization.data(withJSONObject: parameters, options: [])
         
-        if let url = components.url
-        {
+        if let url = components.url {
             var request = URLRequest(url: url)
             request.httpMethod = httpMethodPost.rawValue
             request.allHTTPHeaderFields = headerPost
-            request.httpBody = bodyData as Data
+            request.httpBody = bodyData!
             return request
         }
-        else
-        {
+        else {
             return nil
         }
     }
     
-    func createMarketAssetURLRequest() -> URLRequest?
-    {
+    func createMarketAssetURLRequest() -> URLRequest? {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
         components.path = path
         
-        if let url = components.url
-        {
+        if let url = components.url {
             var request = URLRequest(url: url)
             request.httpMethod = httpMethodGet.rawValue
             request.allHTTPHeaderFields = headerGet
             return request
         }
-        else
-        {
+        else {
             return nil
         }
     }
     
-    func createMarketAssetDetailURLRequest() -> URLRequest?
-    {
+    func createMarketAssetDetailURLRequest() -> URLRequest? {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
         components.path = path
         
-        if let url = components.url
-        {
+        if let url = components.url {
             var request = URLRequest(url: url)
             request.httpMethod = httpMethodGet.rawValue
             request.allHTTPHeaderFields = headerGet
             return request
         }
-        else
-        {
+        else {
             return nil
         }
     }

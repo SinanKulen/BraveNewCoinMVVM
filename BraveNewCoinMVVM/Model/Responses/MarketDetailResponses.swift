@@ -7,10 +7,8 @@
 
 import Foundation
 
-struct MarketDetailResponses: Decodable
-{
-    private enum RootCodingKeys : String, CodingKey
-    {
+struct MarketDetailResponses: Decodable {
+    private enum RootCodingKeys : String, CodingKey {
         case id,baseAssetId,quoteAssetId
     }
 

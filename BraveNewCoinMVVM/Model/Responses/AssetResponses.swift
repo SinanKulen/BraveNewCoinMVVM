@@ -7,17 +7,14 @@
 
 import Foundation
 
-struct AssetResponses : Decodable
-{
-    private enum RootCodingKeys : String,CodingKey
-    {
+struct AssetResponses : Decodable {
+    private enum RootCodingKeys : String,CodingKey {
         case content
     }
     
     let asset : [Asset]
     
-    init(asset: [Asset])
-    {
+    init(asset: [Asset]) {
         self.asset = asset
     }
     

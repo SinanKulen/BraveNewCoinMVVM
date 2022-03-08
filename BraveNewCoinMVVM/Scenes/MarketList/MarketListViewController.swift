@@ -7,9 +7,14 @@
 
 import UIKit
 
-class MarketListViewController: BaseViewController
-{
-    @IBOutlet var tableView: UITableView!
+final class MarketListViewController: BaseViewController {
+    
+    private enum Constants {
+        
+        static let baseTableViewCellIdentifier = "BaseTableViewCell"
+    }
+    
+    @IBOutlet private var tableView: UITableView!
     var viewModel : MarketListViewModelProtocol! {
         didSet {
             viewModel.delegate = self
@@ -21,29 +26,26 @@ class MarketListViewController: BaseViewController
         viewModel.loadData()
         tableView.refreshControl = refreshController
         configureRefreshController()
-        tableView.register(UINib(nibName: "BaseTableViewCell", bundle: nil), forCellReuseIdentifier: "BaseTableViewCell")
+        tableView.register(UINib(nibName: Constants.baseTableViewCellIdentifier, bundle: nil), forCellReuseIdentifier: Constants.baseTableViewCellIdentifier)
     }
     
-    private func configureRefreshController()
-    {
+    private func configureRefreshController() {
         refreshController.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
-    @objc func refresh()
-    {
+    
+    @objc private func refresh() {
         viewModel.refreshData()
         tableView.reloadData()
         refreshController.endRefreshing()
     }
     
-    func buildMarketDetailVC()
-    {
-        let vc = MarketDetailSceneBuilder.build()
+    private func buildMarketDetailVC() {
+        let vc = MarketDetailSceneBuilder.build(id: "")
         show(vc, sender: nil)
     }
 }
 
-extension MarketListViewController : MarketListViewModelDelegate
-{
+extension MarketListViewController : MarketListViewModelDelegate {
     func handleViewModelOutput(_ output: MarketListViewModelOutput) {
         DispatchQueue.main.async {
             switch output {
@@ -58,8 +60,7 @@ extension MarketListViewController : MarketListViewModelDelegate
     }
 }
 
-extension MarketListViewController : UITableViewDataSource
-{
+extension MarketListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.market.count
     }
@@ -71,8 +72,7 @@ extension MarketListViewController : UITableViewDataSource
     }
 }
 
-extension MarketListViewController : UITableViewDelegate
-{
+extension MarketListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         MarketId.marketid = viewModel.market[indexPath.row].id

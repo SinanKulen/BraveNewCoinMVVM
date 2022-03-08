@@ -6,14 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
-final class AssetDetailPresentation
-{
+final class AssetDetailPresentation {
     var id, name, symbol, slugName, status, type: String
     var url, contractAddress: String?
-    
-    init(assetDetail : AssetDetail)
-    {
+    init(assetDetail : AssetDetailResponses) {
         self.id = assetDetail.id
         self.name = assetDetail.name
         self.symbol = assetDetail.symbol
@@ -24,8 +22,7 @@ final class AssetDetailPresentation
         self.contractAddress = assetDetail.contractAddress
     }
     
-    static func == (lhs: AssetDetailPresentation, rhs: AssetDetailPresentation)-> Bool
-    {
+    static func == (lhs: AssetDetailPresentation, rhs: AssetDetailPresentation)-> Bool {
         return lhs.id == rhs.id && lhs.name == rhs.name && lhs.symbol == rhs.symbol && lhs.slugName == rhs.slugName && lhs.status == rhs.status && lhs.type == rhs.type && lhs.url == rhs.url && lhs.contractAddress == rhs.contractAddress
     }
 }

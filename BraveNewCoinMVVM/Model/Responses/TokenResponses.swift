@@ -8,23 +8,26 @@
 import Foundation
 import UIKit
 
-struct TokenResponses : Decodable
-{
-    //MARK: ERROR
-    private enum RootCodingKeys : String, CodingKey
-    {
-        case content
+struct TokenResponses : Decodable {
+    private enum RootCodingKeys : String, CodingKey {
+        case accessToken, scope, expiresIn, tokenType
     }
     
-    let token : [Token]
+    var token = Token(accessToken: "", scope: "", expiresIn: 0, tokenType: "")
     
-    init(token : [Token])
-    {
-        self.token = token
-    }
+    var accessToken, scope: String
+    var expiresIn: Int
+    var tokenType: String
     
     init(from decoder: Decoder) throws {
         let rootContainer = try decoder.container(keyedBy: RootCodingKeys.self)
-        self.token = try rootContainer.decode([Token].self, forKey: .content)
+        accessToken = try rootContainer.decode(String.self, forKey: .accessToken)
+        token.accessToken = accessToken
+        scope = try rootContainer.decode(String.self, forKey: .scope)
+        token.scope = scope
+        expiresIn = try rootContainer.decode(Int.self, forKey: .expiresIn)
+        token.expiresIn = expiresIn
+        tokenType = try rootContainer.decode(String.self, forKey: .tokenType)
+        token.tokenType = tokenType
     }
 }

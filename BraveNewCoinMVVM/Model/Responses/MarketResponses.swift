@@ -7,16 +7,14 @@
 
 import Foundation
 
-struct MarketResponses : Decodable
-{
+struct MarketResponses : Decodable {
     private enum RootCodingKeys : String,CodingKey {
         case content
     }
     
     let market : [Market]
     
-    init(market : [Market])
-    {
+    init(market : [Market]) {
         self.market = market
     }
     

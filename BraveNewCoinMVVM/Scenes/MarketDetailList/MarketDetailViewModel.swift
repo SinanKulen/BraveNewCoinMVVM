@@ -7,25 +7,26 @@
 
 import Foundation
 
-final class MarketDetailViewModel: MarketDetailViewModelProtocol
-{
+final class MarketDetailViewModel: MarketDetailViewModelProtocol {
     var  marketDetail: MarketDetailPresentation!
     weak var delegate : MarketDetailViewModelDelegate?
     private let service : BNCServiceProtocol
-    init(service: BNCServiceProtocol)
-    {
+    private var id: String
+    init(id: String, service: BNCServiceProtocol) {
+        self.id = id
         self.service = service
     }
     
-    func loadData()
-    {
+    func loadData() {
         delegate?.handleViewModelOutput(.setLoading(true))
+        service.fetchToken { (token) in
+            print(token)
+        }
         
         service.fetchMarketDetail {(result) in
             self.delegate?.handleViewModelOutput(.setLoading(false))
             
-            switch result
-            {
+            switch result {
             case .success(let response):
                 self.marketDetail = MarketDetailPresentation(marketDetail: response.marketDetail)
                 self.delegate?.handleViewModelOutput(.showMarketDetail)
@@ -35,8 +36,7 @@ final class MarketDetailViewModel: MarketDetailViewModelProtocol
         }
     }
     
-    func refreshData()
-    {
+    func refreshData() {
         loadData()
     }
 }

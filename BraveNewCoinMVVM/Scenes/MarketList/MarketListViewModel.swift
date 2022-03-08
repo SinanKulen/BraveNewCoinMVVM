@@ -12,24 +12,21 @@ final class MarketListViewModel : MarketListViewModelProtocol
 {
     weak var delegate : MarketListViewModelDelegate?
     private let service : BNCServiceProtocol
-    var market : [MarketPresentation] = []
-    init(service : BNCServiceProtocol)
-    {
+    var market: [MarketPresentation] = []
+    init(service : BNCServiceProtocol) {
         self.service = service
     }
     
-    func loadData()
-    {
+    func loadData() {
         delegate?.handleViewModelOutput(.setLoading(true))
         
-        service.fetchMarket {[weak self] (result) in
+        service.fetchMarketList {[weak self] (result) in
             guard let self = self else { return }
             self.delegate?.handleViewModelOutput(.setLoading(false))
             
-            switch result
-            {
+            switch result {
             case .success(let response):
-                self.market = response.market.map{ MarketPresentation(market: $0) }
+                self.market = response.market.map { MarketPresentation(market: $0) }
                 self.delegate?.handleViewModelOutput(.showMarketList)
             case .failure(let error):
                 self.delegate?.handleViewModelOutput(.error(error))

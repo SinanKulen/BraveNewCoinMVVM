@@ -7,10 +7,9 @@
 
 import UIKit
 
-class AssetListViewController: BaseViewController
-{
+final class AssetListViewController: BaseViewController {
 
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet private var tableView: UITableView!
     var viewModel : AssetListViewModelProtocol! {
         didSet {
             viewModel.delegate = self
@@ -25,26 +24,22 @@ class AssetListViewController: BaseViewController
         tableView.register(UINib(nibName: "BaseTableViewCell", bundle: nil), forCellReuseIdentifier: "BaseTableViewCell")
     }
     
-    private func configureRefreshController()
-    {
+    private func configureRefreshController() {
         refreshController.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
-    @objc func refresh()
-    {
+    @objc private func refresh() {
         viewModel.refreshData()
         tableView.reloadData()
         refreshController.endRefreshing()
     }
     
-    func buildAssetDetailVC()
-    {
+    func buildAssetDetailVC() {
         let vc = AssetDetailSceneBuilder.build()
         show(vc, sender: nil)
     }
 }
 
-extension AssetListViewController : AssetListViewModelDelegate
-{
+extension AssetListViewController : AssetListViewModelDelegate {
     func handleViewModelOutput(_ output: AssetListViewModelOutput) {
         DispatchQueue.main.async {
             switch output {
@@ -59,8 +54,7 @@ extension AssetListViewController : AssetListViewModelDelegate
     }
 }
 
-extension AssetListViewController : UITableViewDataSource
-{
+extension AssetListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.asset.count
     }
@@ -72,8 +66,7 @@ extension AssetListViewController : UITableViewDataSource
     }
 }
 
-extension AssetListViewController : UITableViewDelegate
-{
+extension AssetListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         AssetId.assetid = viewModel.asset[indexPath.row].id
         buildAssetDetailVC()

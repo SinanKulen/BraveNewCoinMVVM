@@ -7,8 +7,7 @@
 
 import Foundation
 
-final class AssetDetailViewModel : AssetDetailViewModelProtocol
-{
+final class AssetDetailViewModel : AssetDetailViewModelProtocol {
     var assetDetail: AssetDetailPresentation!
     weak var delegate: AssetListViewModelDelegate?
     private let service : BNCServiceProtocol
@@ -17,8 +16,7 @@ final class AssetDetailViewModel : AssetDetailViewModelProtocol
         self.service = service
     }
     
-    func loadData()
-    {
+    func loadData() {
         delegate?.handleViewModelOutput(.setLoading(true))
         
         service.fetchAssetDetail { (result) in
@@ -27,7 +25,7 @@ final class AssetDetailViewModel : AssetDetailViewModelProtocol
             switch result
             {
             case .success(let response):
-                self.assetDetail = AssetDetailPresentation(assetDetail: response.assetDetail)
+                self.assetDetail = AssetDetailPresentation(assetDetail: response)
                 self.delegate?.handleViewModelOutput(.showAssetList)
             case .failure(let error):
                 self.delegate?.handleViewModelOutput(.error(error))

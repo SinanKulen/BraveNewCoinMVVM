@@ -7,22 +7,19 @@
 
 import Foundation
 
-protocol MarketListViewModelProtocol
-{
+protocol MarketListViewModelProtocol {
     var delegate : MarketListViewModelDelegate? { get set }
     var market: [MarketPresentation] { get set }
     func loadData()
     func refreshData()
 }
 
-enum MarketListViewModelOutput: Equatable
-{
+enum MarketListViewModelOutput: Equatable {
     case setLoading(Bool)
     case error(NetworkErrors)
     case showMarketList
 }
 
-protocol MarketListViewModelDelegate : AnyObject
-{
+protocol MarketListViewModelDelegate : AnyObject {
     func handleViewModelOutput(_ output: MarketListViewModelOutput)
 }

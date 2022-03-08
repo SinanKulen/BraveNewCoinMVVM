@@ -7,8 +7,7 @@
 
 import Foundation
 
-enum NetworkErrors : String, Error
-{
+enum NetworkErrors : String, Error {
     case success
     case authenticationError = "You need to be authenticated first"
     case badRequest = "Bad request"

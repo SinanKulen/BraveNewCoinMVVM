@@ -17,8 +17,7 @@ class BaseViewController: UIViewController {
         configureActivityIndicator()
     }
     
-    func setActivityIndıcatorAnimation(with loading: Bool)
-    {
+    func setActivityIndıcatorAnimation(with loading: Bool) {
         if loading
         {
             self.activityIndicator.startAnimating()
@@ -29,8 +28,7 @@ class BaseViewController: UIViewController {
         }
     }
     
-    private func configureActivityIndicator()
-    {
+    private func configureActivityIndicator() {
         view.addSubview(activityIndicator)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true

@@ -7,22 +7,19 @@
 
 import Foundation
 
-protocol AssetListViewModelProtocol
-{
+protocol AssetListViewModelProtocol {
     var delegate : AssetListViewModelDelegate? { get set }
     var asset: [AssetPresentation] { get set }
     func loadData()
     func refreshData()
 }
 
-enum AssetListViewModelOutput: Equatable
-{
+enum AssetListViewModelOutput: Equatable {
     case setLoading(Bool)
     case error(NetworkErrors)
     case showAssetList
 }
 
-protocol AssetListViewModelDelegate : AnyObject
-{
+protocol AssetListViewModelDelegate : AnyObject {
     func handleViewModelOutput(_ output: AssetListViewModelOutput)
 }

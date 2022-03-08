@@ -9,7 +9,7 @@ import Foundation
 
 let appContainer = AppContainer()
 
-class AppContainer
+final class AppContainer
 {
     let service : BNCServiceProtocol = BNCService()
     let router = AppRouter()

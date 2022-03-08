@@ -7,18 +7,15 @@
 
 import Foundation
 
-final class AssetListViewModel : AssetListViewModelProtocol
-{
+final class AssetListViewModel : AssetListViewModelProtocol {
     weak var delegate : AssetListViewModelDelegate?
     private let service : BNCServiceProtocol
     var asset : [AssetPresentation] = []
-    init(service : BNCServiceProtocol)
-    {
+    init(service : BNCServiceProtocol) {
         self.service = service
     }
     
-    func loadData()
-    {
+    func loadData() {
         delegate?.handleViewModelOutput(.setLoading(true))
         
         service.fetchAsset {[weak self] (result) in
@@ -36,8 +33,7 @@ final class AssetListViewModel : AssetListViewModelProtocol
         }
     }
     
-    func refreshData()
-    {
+    func refreshData() {
         asset.removeAll()
         loadData()
     }

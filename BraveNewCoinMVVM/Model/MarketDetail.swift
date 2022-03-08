@@ -12,8 +12,7 @@ struct MarketDetail: Codable {
 
 }
 
-struct MarketId
-{
+struct MarketId {
     static var marketid : String?
     private init() {}
 }

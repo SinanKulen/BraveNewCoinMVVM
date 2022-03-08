@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-extension UIViewController
-{
+extension UIViewController {
     func showAlert(with title: String, _ message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let doneAction = UIAlertAction(title: "Done", style: .default, handler: nil)

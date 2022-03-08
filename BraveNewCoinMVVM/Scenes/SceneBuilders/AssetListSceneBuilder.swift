@@ -8,10 +8,8 @@
 import Foundation
 import UIKit
 
-final class AssetListSceneBuilder
-{
-    static func build() -> AssetListViewController
-    {
+final class AssetListSceneBuilder {
+    static func build() -> AssetListViewController {
         let storyboard = UIStoryboard(name: "AssetList", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "AssetListViewController") as! AssetListViewController
         viewController.viewModel = AssetListViewModel(service: appContainer.service)

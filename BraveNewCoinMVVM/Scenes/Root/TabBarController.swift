@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
     
     private func configureTabBar()
     {
-        let marketVC = MarketListSceneBuilder.build()
+        let marketVC = MarketListSceneBuilder.build(viewModel: MarketListViewModel.init(service: appContainer.service))
         marketVC.title = "Markets"
         marketVC.tabBarItem = UITabBarItem(title: "Market", image: nil, tag: 0)
         let marketNC = UINavigationController(rootViewController: marketVC)

@@ -7,16 +7,16 @@
 
 import UIKit
 
-class AssetDetailViewController: BaseViewController {
+final class AssetDetailViewController: BaseViewController {
     
-    @IBOutlet var idLabel: UILabel!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var symbolLabel: UILabel!
-    @IBOutlet var slugNameLabel: UILabel!
-    @IBOutlet var statusLabel: UILabel!
-    @IBOutlet var typeLabel: UILabel!
-    @IBOutlet var urlLabel: UILabel!
-    @IBOutlet var contractLabel: UILabel!
+    @IBOutlet private var idLabel: UILabel!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var symbolLabel: UILabel!
+    @IBOutlet private var slugNameLabel: UILabel!
+    @IBOutlet private var statusLabel: UILabel!
+    @IBOutlet private var typeLabel: UILabel!
+    @IBOutlet private var urlLabel: UILabel!
+    @IBOutlet private var contractLabel: UILabel!
     
     var viewModel : AssetDetailViewModelProtocol!{
         didSet{
@@ -41,8 +41,7 @@ class AssetDetailViewController: BaseViewController {
     }
 }
 
-extension AssetDetailViewController : AssetListViewModelDelegate
-{
+extension AssetDetailViewController : AssetListViewModelDelegate {
     func handleViewModelOutput(_ output: AssetListViewModelOutput) {
         DispatchQueue.main.async {
             switch output {

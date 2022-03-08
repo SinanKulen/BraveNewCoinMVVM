@@ -14,7 +14,7 @@ class MarketDetailViewController: BaseViewController {
     @IBOutlet var quoteId: UILabel!
     
     var viewModel : MarketDetailViewModelProtocol!{
-        didSet{
+        didSet {
             viewModel.delegate = self
         }
     }
@@ -25,8 +25,7 @@ class MarketDetailViewController: BaseViewController {
         configureRefreshController()
     }
     
-    private func configureRefreshController()
-    {
+    private func configureRefreshController() {
         refreshController.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     @objc func refresh()
@@ -36,8 +35,7 @@ class MarketDetailViewController: BaseViewController {
     }
 }
 
-extension MarketDetailViewController : MarketDetailViewModelDelegate
-{
+extension MarketDetailViewController : MarketDetailViewModelDelegate {
     func handleViewModelOutput(_ output: MarketDetailViewModelOutput)
     {
         DispatchQueue.main.async {
