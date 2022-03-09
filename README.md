@@ -2,6 +2,7 @@
 
 - BraveNewCoin API
 - MVVM
+- Auto Layout
 - TabBar
 - RefreshController
 - Multiple Storyboards
