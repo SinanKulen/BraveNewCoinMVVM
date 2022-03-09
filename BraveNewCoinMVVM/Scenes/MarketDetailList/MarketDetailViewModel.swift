@@ -19,10 +19,6 @@ final class MarketDetailViewModel: MarketDetailViewModelProtocol {
     
     func loadData() {
         delegate?.handleViewModelOutput(.setLoading(true))
-        service.fetchToken { (token) in
-            print(token)
-        }
-        
         service.fetchMarketDetail(id: id) { (result) in
             self.delegate?.handleViewModelOutput(.setLoading(false))
             
