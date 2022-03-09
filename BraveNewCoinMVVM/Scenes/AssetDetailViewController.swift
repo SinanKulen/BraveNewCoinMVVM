@@ -41,7 +41,7 @@ final class AssetDetailViewController: BaseViewController {
     }
 }
 
-extension AssetDetailViewController : AssetListViewModelDelegate {
+extension AssetDetailViewController : AssetDetailViewModelDelegate {
     func handleViewModelOutput(_ output: AssetListViewModelOutput) {
         DispatchQueue.main.async {
             switch output {
@@ -57,8 +57,8 @@ extension AssetDetailViewController : AssetListViewModelDelegate {
                 self.slugNameLabel.text = self.viewModel.assetDetail.slugName
                 self.statusLabel.text = self.viewModel.assetDetail.status
                 self.typeLabel.text = self.viewModel.assetDetail.type
-                self.urlLabel.text = (self.viewModel.assetDetail.url != nil) ? self.viewModel.assetDetail.url : ""
-                self.contractLabel.text = (self.viewModel.assetDetail.contractAddress != nil) ? self.viewModel.assetDetail.contractAddress : ""
+                self.urlLabel.text = (self.viewModel.assetDetail.url != nil) ? self.viewModel.assetDetail.url : "-"
+                self.contractLabel.text = (self.viewModel.assetDetail.contractAddress != nil) ? self.viewModel.assetDetail.contractAddress : "-"
                 
             }
         }

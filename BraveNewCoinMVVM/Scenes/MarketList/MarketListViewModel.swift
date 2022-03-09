@@ -8,12 +8,11 @@
 import Foundation
 
 
-final class MarketListViewModel : MarketListViewModelProtocol
-{
+final class MarketListViewModel : MarketListViewModelProtocol {
     weak var delegate : MarketListViewModelDelegate?
-    private let service : BNCServiceProtocol
-    var market: [MarketPresentation] = []
-    init(service : BNCServiceProtocol) {
+    private let service : NetworkServiceProtocol
+    var marketList: [MarketPresentation] = []
+    init(service : NetworkServiceProtocol) {
         self.service = service
     }
     
@@ -26,7 +25,7 @@ final class MarketListViewModel : MarketListViewModelProtocol
             
             switch result {
             case .success(let response):
-                self.market = response.market.map { MarketPresentation(market: $0) }
+                self.marketList = response.market.map { MarketPresentation(market: $0) }
                 self.delegate?.handleViewModelOutput(.showMarketList)
             case .failure(let error):
                 self.delegate?.handleViewModelOutput(.error(error))
@@ -34,9 +33,14 @@ final class MarketListViewModel : MarketListViewModelProtocol
         }
     }
     
-    func refreshData()
-    {
-        market.removeAll()
+    func selectMarket(at index: Int) {
+        let market = marketList[index].id
+        let viewModel = MarketDetailViewModel(id: market, service: appContainer.service)
+        delegate?.marketDetailSceneRouter(.marketDetailId(viewModel))
+    }
+    
+    func refreshData() {
+        marketList.removeAll()
         loadData()
     }
 }

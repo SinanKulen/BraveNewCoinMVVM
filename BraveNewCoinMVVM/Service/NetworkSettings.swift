@@ -1,5 +1,5 @@
 //
-//  APISettings.swift
+//  NetworkSettings.swift
 //  BraveNewCoinMVVM
 //
 //  Created by Sinan Kulen on 4.03.2022.
@@ -12,7 +12,7 @@ enum HttpMethod: String {
     case post = "POST"
 }
 
-protocol APISetting {
+protocol NetworkSetting {
     var httpMethodGet : HttpMethod { get }
     var httpMethodPost : HttpMethod { get }
     var scheme : String { get }
@@ -23,7 +23,7 @@ protocol APISetting {
     var parameters : [String:Any] { get }
 }
 
-extension APISetting {
+extension NetworkSetting {
     var httpMethodGet : HttpMethod {
         return .get
     }
@@ -55,18 +55,6 @@ extension APISetting {
         return ["audience"  : "https://api.bravenewcoin.com",
                 "client_id" : "oCdQoZoI96ERE9HY3sQ7JmbACfBf55RY",
                 "grant_type": "client_credentials"]
-    }
-    
-    func createTokenURLString() -> String {
-        return "\(scheme)://\(host)\(path)"
-    }
-    
-    func createMarketAssetURLString() -> String {
-        return "\(scheme)://\(host)\(path)"
-    }
-    
-    func createMarketAssetDetailURLString() -> String {
-        return "\(scheme)://\(host)\(path)"
     }
     
     func createTokenURLRequest() -> URLRequest? {
@@ -106,11 +94,11 @@ extension APISetting {
         }
     }
     
-    func createMarketAssetDetailURLRequest() -> URLRequest? {
+    func createMarketAssetDetailURLRequest(id: String) -> URLRequest? {
         var components = URLComponents()
         components.scheme = scheme
         components.host = host
-        components.path = path
+        components.path = path + "/" + id
         
         if let url = components.url {
             var request = URLRequest(url: url)

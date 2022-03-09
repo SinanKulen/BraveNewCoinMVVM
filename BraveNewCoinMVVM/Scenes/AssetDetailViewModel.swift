@@ -9,19 +9,21 @@ import Foundation
 
 final class AssetDetailViewModel : AssetDetailViewModelProtocol {
     var assetDetail: AssetDetailPresentation!
-    weak var delegate: AssetListViewModelDelegate?
-    private let service : BNCServiceProtocol
-    init(service: BNCServiceProtocol)
+    weak var delegate: AssetDetailViewModelDelegate?
+    private let service : NetworkServiceProtocol
+    private var id : String
+    init(id: String, service: NetworkServiceProtocol)
     {
+        self.id = id
         self.service = service
     }
-    
+
     func loadData() {
         delegate?.handleViewModelOutput(.setLoading(true))
-        
-        service.fetchAssetDetail { (result) in
+
+        service.fetchAssetDetail(id: id) { (result) in
             self.delegate?.handleViewModelOutput(.setLoading(false))
-            
+
             switch result
             {
             case .success(let response):
@@ -32,7 +34,7 @@ final class AssetDetailViewModel : AssetDetailViewModelProtocol {
             }
         }
     }
-    
+
     func refreshData()
     {
         loadData()

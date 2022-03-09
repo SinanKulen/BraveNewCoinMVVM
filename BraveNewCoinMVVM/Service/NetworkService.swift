@@ -7,16 +7,16 @@
 
 import Foundation
 
-protocol BNCServiceProtocol
+protocol NetworkServiceProtocol
 {
     func fetchToken(completion: @escaping (Result<TokenResponses, NetworkErrors>) -> Void)
     func fetchMarketList(completion: @escaping (Result<MarketResponses, NetworkErrors>) -> Void)
-    func fetchAsset(completion: @escaping(Result<AssetResponses, NetworkErrors>) -> Void)
-    func fetchMarketDetail(completion: @escaping(Result<MarketDetailResponses, NetworkErrors>) -> Void)
-    func fetchAssetDetail(completion: @escaping(Result<AssetDetailResponses, NetworkErrors>) -> Void)
+    func fetchAssetList(completion: @escaping(Result<AssetResponses, NetworkErrors>) -> Void)
+    func fetchMarketDetail(id: String, completion: @escaping(Result<MarketDetailResponses, NetworkErrors>) -> Void) 
+    func fetchAssetDetail(id: String, completion: @escaping(Result<AssetDetailResponses, NetworkErrors>) -> Void)
 }
 
-class BNCService : BNCServiceProtocol
+class NetworkService : NetworkServiceProtocol
 {
     func fetchToken(completion: @escaping (Result<TokenResponses, NetworkErrors>) -> Void) {
         tokenRequest(RequestType.token, completion: completion)
@@ -26,21 +26,20 @@ class BNCService : BNCServiceProtocol
         dataRequest(RequestType.market, completion: completion)
     }
     
-    func fetchAsset(completion: @escaping(Result<AssetResponses, NetworkErrors>) -> Void) {
+    func fetchAssetList(completion: @escaping(Result<AssetResponses, NetworkErrors>) -> Void) {
         dataRequest(RequestType.asset, completion: completion)
     }
     
-    func fetchMarketDetail(completion: @escaping(Result<MarketDetailResponses, NetworkErrors>) -> Void) {
-        detailDataRequest(RequestType.marketId, completion: completion)
+    func fetchMarketDetail(id: String, completion: @escaping(Result<MarketDetailResponses, NetworkErrors>) -> Void) {
+        detailDataRequest(RequestType.market, detailId: id, completion: completion)
     }
     
-    func fetchAssetDetail(completion: @escaping(Result<AssetDetailResponses, NetworkErrors>) -> Void) {
-        detailDataRequest(RequestType.assetId, completion: completion)
+    func fetchAssetDetail(id: String, completion: @escaping(Result<AssetDetailResponses, NetworkErrors>) -> Void) {
+        detailDataRequest(RequestType.asset, detailId: id, completion: completion)
     }
     
-    //Send request to api and decode the result
-    func detailDataRequest<T:Decodable>(_ requestType: RequestType, completion: @escaping(Result<T,NetworkErrors>)->Void) {
-        guard let request = requestType.createMarketAssetDetailURLRequest() else {
+    func detailDataRequest<T:Decodable>(_ requestType: RequestType, detailId : String, completion: @escaping(Result<T,NetworkErrors>)->Void) {
+        guard let request = requestType.createMarketAssetDetailURLRequest(id: detailId) else {
             completion(.failure(.failed))
             return
         }
@@ -85,6 +84,7 @@ class BNCService : BNCServiceProtocol
                 let response = try decoder.decode(T.self, from: data)
                 completion(.success(response))
             } catch let decodingError{
+                print(decodingError)
                 completion(.failure(.unableToDecode))
             }
 

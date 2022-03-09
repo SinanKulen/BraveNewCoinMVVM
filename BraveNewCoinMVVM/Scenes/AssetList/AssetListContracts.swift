@@ -9,8 +9,9 @@ import Foundation
 
 protocol AssetListViewModelProtocol {
     var delegate : AssetListViewModelDelegate? { get set }
-    var asset: [AssetPresentation] { get set }
+    var assetList: [AssetPresentation] { get set }
     func loadData()
+    func selectAsset(at index: Int)
     func refreshData()
 }
 
@@ -22,4 +23,9 @@ enum AssetListViewModelOutput: Equatable {
 
 protocol AssetListViewModelDelegate : AnyObject {
     func handleViewModelOutput(_ output: AssetListViewModelOutput)
+    func assetDetailSceneRouter(_ router: AssetDetailRouter)
+}
+
+enum AssetDetailRouter {
+    case assetDetailId(_ viewModel: AssetDetailViewModel)
 }

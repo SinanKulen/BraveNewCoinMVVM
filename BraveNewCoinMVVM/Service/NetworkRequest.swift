@@ -7,18 +7,13 @@
 
 import Foundation
 
-enum RequestType
-{
+enum RequestType {
     case token
     case market
     case asset
-    case marketId
-    case assetId
 }
 
-// Creates path depends on request
-extension RequestType : APISetting
-{
+extension RequestType : NetworkSetting {
     var path : String {
         switch self
         {
@@ -28,10 +23,6 @@ extension RequestType : APISetting
             return "/market"
         case .asset :
             return "/asset"
-        case .marketId :
-            return "/market/\(MarketId.marketid ?? "")"
-        case .assetId :
-            return "/asset/\(AssetId.assetid ?? "")"
         }
     }
 }

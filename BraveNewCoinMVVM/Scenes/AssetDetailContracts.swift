@@ -8,7 +8,7 @@
 import Foundation
 
 protocol AssetDetailViewModelProtocol {
-    var delegate : AssetListViewModelDelegate? { get set }
+    var delegate : AssetDetailViewModelDelegate? { get set }
     var assetDetail : AssetDetailPresentation! { get set }
     func loadData()
     func refreshData()

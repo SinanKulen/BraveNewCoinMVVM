@@ -7,10 +7,10 @@
 
 import Foundation
 
-final class MarketDetailPresentation {
+final class MarketDetailPresentation : Equatable {
     var id, baseAssetId, quoteAssetId : String
     
-    init(marketDetail : MarketDetail) {
+    init(marketDetail : MarketDetailResponses) {
         self.id = marketDetail.id
         self.baseAssetId = marketDetail.baseAssetId
         self.quoteAssetId = marketDetail.quoteAssetId

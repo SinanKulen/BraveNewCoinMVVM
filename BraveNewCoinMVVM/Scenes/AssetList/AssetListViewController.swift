@@ -9,21 +9,26 @@ import UIKit
 
 final class AssetListViewController: BaseViewController {
 
+    private enum Constants {
+        
+        static let baseTableViewCellIdentifier = "BaseTableViewCell"
+    }
+    
     @IBOutlet private var tableView: UITableView!
     var viewModel : AssetListViewModelProtocol! {
         didSet {
             viewModel.delegate = self
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.loadData()
         tableView.refreshControl = refreshController
         configureRefreshController()
-        tableView.register(UINib(nibName: "BaseTableViewCell", bundle: nil), forCellReuseIdentifier: "BaseTableViewCell")
+        tableView.register(UINib(nibName: Constants.baseTableViewCellIdentifier, bundle: nil), forCellReuseIdentifier: Constants.baseTableViewCellIdentifier)
     }
-    
+
     private func configureRefreshController() {
         refreshController.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
@@ -31,11 +36,6 @@ final class AssetListViewController: BaseViewController {
         viewModel.refreshData()
         tableView.reloadData()
         refreshController.endRefreshing()
-    }
-    
-    func buildAssetDetailVC() {
-        let vc = AssetDetailSceneBuilder.build()
-        show(vc, sender: nil)
     }
 }
 
@@ -52,23 +52,31 @@ extension AssetListViewController : AssetListViewModelDelegate {
             }
         }
     }
+    
+    func assetDetailSceneRouter(_ router: AssetDetailRouter) {
+        switch router {
+        case .assetDetailId(let detailViewModel):
+            let vc = AssetDetailSceneBuilder.build(with: detailViewModel)
+            show(vc, sender: nil)
+        }
+    }
 }
 
 extension AssetListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.asset.count
+        return viewModel.assetList.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTableViewCell",for: indexPath) as? BaseTableViewCell else { return UITableViewCell() }
-        cell.titleLabel.text = viewModel.asset[indexPath.row].name
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.baseTableViewCellIdentifier,for: indexPath) as? BaseTableViewCell else { return UITableViewCell() }
+        cell.titleLabel.text = viewModel.assetList[indexPath.row].name
         return cell
     }
 }
 
 extension AssetListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        AssetId.assetid = viewModel.asset[indexPath.row].id
-        buildAssetDetailVC()
+        tableView.deselectRow(at: indexPath, animated: true)
+        viewModel.selectAsset(at: indexPath.row)
     }
 }

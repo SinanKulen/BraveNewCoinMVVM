@@ -9,23 +9,23 @@ import Foundation
 
 final class AssetListViewModel : AssetListViewModelProtocol {
     weak var delegate : AssetListViewModelDelegate?
-    private let service : BNCServiceProtocol
-    var asset : [AssetPresentation] = []
-    init(service : BNCServiceProtocol) {
+    private let service : NetworkServiceProtocol
+    var assetList : [AssetPresentation] = []
+    init(service : NetworkServiceProtocol) {
         self.service = service
     }
     
     func loadData() {
         delegate?.handleViewModelOutput(.setLoading(true))
         
-        service.fetchAsset {[weak self] (result) in
+        service.fetchAssetList {[weak self] (result) in
             guard let self = self else { return }
             self.delegate?.handleViewModelOutput(.setLoading(false))
             
             switch result
             {
             case .success(let response):
-                self.asset = response.asset.map{ AssetPresentation(asset: $0) }
+                self.assetList = response.asset.map{ AssetPresentation(asset: $0) }
                 self.delegate?.handleViewModelOutput(.showAssetList)
             case .failure(let error):
                 self.delegate?.handleViewModelOutput(.error(error))
@@ -33,8 +33,14 @@ final class AssetListViewModel : AssetListViewModelProtocol {
         }
     }
     
+    func selectAsset(at index: Int) {
+        let asset = assetList[index].id
+        let viewModel = AssetDetailViewModel(id: asset, service: appContainer.service)
+        delegate?.assetDetailSceneRouter(.assetDetailId(viewModel))
+    }
+    
     func refreshData() {
-        asset.removeAll()
+        assetList.removeAll()
         loadData()
     }
 }

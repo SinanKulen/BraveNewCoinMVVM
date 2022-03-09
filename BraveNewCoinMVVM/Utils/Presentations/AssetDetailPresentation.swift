@@ -8,9 +8,10 @@
 import Foundation
 import UIKit
 
-final class AssetDetailPresentation {
+final class AssetDetailPresentation : Equatable {
     var id, name, symbol, slugName, status, type: String
     var url, contractAddress: String?
+    
     init(assetDetail : AssetDetailResponses) {
         self.id = assetDetail.id
         self.name = assetDetail.name

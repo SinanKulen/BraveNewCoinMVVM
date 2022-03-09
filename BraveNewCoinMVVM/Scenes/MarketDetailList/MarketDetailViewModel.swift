@@ -10,9 +10,9 @@ import Foundation
 final class MarketDetailViewModel: MarketDetailViewModelProtocol {
     var  marketDetail: MarketDetailPresentation!
     weak var delegate : MarketDetailViewModelDelegate?
-    private let service : BNCServiceProtocol
+    private let service : NetworkServiceProtocol
     private var id: String
-    init(id: String, service: BNCServiceProtocol) {
+    init(id: String, service: NetworkServiceProtocol) {
         self.id = id
         self.service = service
     }
@@ -23,12 +23,12 @@ final class MarketDetailViewModel: MarketDetailViewModelProtocol {
             print(token)
         }
         
-        service.fetchMarketDetail {(result) in
+        service.fetchMarketDetail(id: id) { (result) in
             self.delegate?.handleViewModelOutput(.setLoading(false))
             
             switch result {
             case .success(let response):
-                self.marketDetail = MarketDetailPresentation(marketDetail: response.marketDetail)
+                self.marketDetail = MarketDetailPresentation(marketDetail: response)
                 self.delegate?.handleViewModelOutput(.showMarketDetail)
             case .failure(let error):
                 self.delegate?.handleViewModelOutput(.error(error))

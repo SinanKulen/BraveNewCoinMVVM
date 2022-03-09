@@ -9,10 +9,10 @@ import Foundation
 import UIKit
 
 final class AssetDetailSceneBuilder {
-    static func build() -> AssetDetailViewController {
+    static func build(with viewModel : AssetDetailViewModel) -> AssetDetailViewController {
         let storyboard = UIStoryboard(name: "AssetDetail", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "AssetDetailViewController") as! AssetDetailViewController
-        viewController.viewModel = AssetDetailViewModel(service: appContainer.service)
+        viewController.viewModel = viewModel
         return viewController
     }
 }

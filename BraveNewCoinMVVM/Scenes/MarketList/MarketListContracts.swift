@@ -9,8 +9,9 @@ import Foundation
 
 protocol MarketListViewModelProtocol {
     var delegate : MarketListViewModelDelegate? { get set }
-    var market: [MarketPresentation] { get set }
+    var marketList: [MarketPresentation] { get set }
     func loadData()
+    func selectMarket(at index: Int) 
     func refreshData()
 }
 
@@ -22,4 +23,9 @@ enum MarketListViewModelOutput: Equatable {
 
 protocol MarketListViewModelDelegate : AnyObject {
     func handleViewModelOutput(_ output: MarketListViewModelOutput)
+    func marketDetailSceneRouter(_ router: MarketDetailRouter)
+}
+
+enum MarketDetailRouter {
+    case marketDetailId(_ viewModel: MarketDetailViewModel)
 }

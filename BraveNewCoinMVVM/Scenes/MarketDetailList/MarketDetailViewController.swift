@@ -7,12 +7,11 @@
 
 import UIKit
 
-class MarketDetailViewController: BaseViewController {
+final class MarketDetailViewController: BaseViewController {
     
-    @IBOutlet var marketId: UILabel!
-    @IBOutlet var baseId: UILabel!
-    @IBOutlet var quoteId: UILabel!
-    
+    @IBOutlet private var marketId: UILabel!
+    @IBOutlet private var baseId: UILabel!
+    @IBOutlet private var quoteId: UILabel!
     var viewModel : MarketDetailViewModelProtocol!{
         didSet {
             viewModel.delegate = self
@@ -28,7 +27,7 @@ class MarketDetailViewController: BaseViewController {
     private func configureRefreshController() {
         refreshController.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
-    @objc func refresh()
+    @objc private func refresh()
     {
         viewModel.refreshData()
         refreshController.endRefreshing()

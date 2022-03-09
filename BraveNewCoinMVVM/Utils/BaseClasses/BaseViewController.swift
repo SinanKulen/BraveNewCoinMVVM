@@ -18,12 +18,10 @@ class BaseViewController: UIViewController {
     }
     
     func setActivityIndıcatorAnimation(with loading: Bool) {
-        if loading
-        {
+        if loading {
             self.activityIndicator.startAnimating()
         }
-        else
-        {
+        else {
             self.activityIndicator.stopAnimating()
         }
     }

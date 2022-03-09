@@ -10,7 +10,6 @@ import UIKit
 final class MarketListViewController: BaseViewController {
     
     private enum Constants {
-        
         static let baseTableViewCellIdentifier = "BaseTableViewCell"
     }
     
@@ -39,10 +38,6 @@ final class MarketListViewController: BaseViewController {
         refreshController.endRefreshing()
     }
     
-    private func buildMarketDetailVC() {
-        let vc = MarketDetailSceneBuilder.build(id: "")
-        show(vc, sender: nil)
-    }
 }
 
 extension MarketListViewController : MarketListViewModelDelegate {
@@ -58,16 +53,24 @@ extension MarketListViewController : MarketListViewModelDelegate {
             }
         }
     }
+    
+    func marketDetailSceneRouter(_ router: MarketDetailRouter) {
+        switch router {
+        case .marketDetailId(let detailViewModel):
+            let vc = MarketDetailSceneBuilder.build(with: detailViewModel)
+            show(vc, sender: nil)
+        }
+    }
 }
 
 extension MarketListViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.market.count
+        return viewModel.marketList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BaseTableViewCell",for: indexPath) as? BaseTableViewCell else { return UITableViewCell() }
-        cell.titleLabel.text = viewModel.market[indexPath.row].id
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.baseTableViewCellIdentifier,for: indexPath) as? BaseTableViewCell else { return UITableViewCell() }
+        cell.titleLabel.text = viewModel.marketList[indexPath.row].id
         return cell
     }
 }
@@ -75,7 +78,7 @@ extension MarketListViewController : UITableViewDataSource {
 extension MarketListViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        MarketId.marketid = viewModel.market[indexPath.row].id
-        buildMarketDetailVC()
+        viewModel.selectMarket(at: indexPath.row)
+
     }
 }
